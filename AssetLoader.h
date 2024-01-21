@@ -1,10 +1,12 @@
-
 #pragma once
-#include <string>
+#include<vector>
+
 class AssetLoader
 {
+private:
 	std::vector <int> ID{};
-	std::vector <char*> ImageID{};
-	int Load(std::vector<int>,std::vector<char*>);
+public:
+	int Load(std::vector<const char*>);
+	int getID(int);
 };
 
