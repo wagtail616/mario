@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "AssetLoader.h"
+#include "ActorClass.h"
 #include <vector>
 
 // プログラムは WinMain から始まります
@@ -12,11 +13,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	std::vector<const char*> ImageName{"images/ice_skate_man.png","images/ice_skate_kaiten.png"};
 
+
+
 	//画像の読み込み
 	AssetLoader Loader;
-	Loader.Load(ImageName);
+	Loader.Loading(ImageName);
 	//画像の表示
-	DrawGraph(0, 0, Loader.getID(0), TRUE);
+	Actor actor(Loader.getValue(ImageName[1]));//Actorクラスのactorを宣言
+	actor.Draw();
+
+
 	//ジャンプしてる画像
 	//DrawGraph(200, 0, Loader.getID(1),TRUE);
 
