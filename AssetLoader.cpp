@@ -1,6 +1,7 @@
 #include "AssetLoader.h"
 #include "DxLib.h"
 
+
  int AssetLoader::Load(std::vector<const char*> ImageID) {
 
 	 for (const char* IDs:ImageID) {
@@ -12,7 +13,9 @@
 
  int  AssetLoader::Loading(std::vector<const char*> Key) {
 	 for (const char* Keys:Key){
-		 this->Key[Keys] = LoadGraph(Keys);
+		 char images[255] = "images/";
+		 strcat_s(images, Keys);
+		 this->Key[Keys] = LoadGraph(images);
 	 }
 	 return 0;
  }
