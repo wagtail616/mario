@@ -6,10 +6,15 @@
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+
+	// ウインドウモードで起動
+	ChangeWindowMode(TRUE);
+
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
 	{
 		return -1;			// エラーが起きたら直ちに終了
 	}
+
 	//画像
 	std::vector<const char*> ImageName{"ice_skate_man.png","ice_skate_kaiten.png"};
 	
@@ -22,8 +27,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	while (ProcessMessage() == 0) {
 
+		ClearDrawScreen();
 		actor.Draw();
-
 		int end = CheckHitKey(KEY_INPUT_ESCAPE);
 		//ゲーム終了処理
 		if (end ==1) {
